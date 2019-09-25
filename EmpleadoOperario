@@ -1,0 +1,27 @@
+package ar.edu.uno.empresa;
+
+public class EmpleadoOperario extends EmpleadoPermanente{
+
+	private int extras;
+	static int extrasValor=150;
+	
+	public EmpleadoOperario(String nomyape,int cantHijos,int añoIng,boolean estadoC,int extras) {
+		super (nomyape,cantHijos,añoIng,estadoC);
+		this.setExtras(extras);
+	}
+	
+	public void liqSueldo() {
+		super.liqSueldo();
+		this.setSueldo(this.getSueldo()+(this.getExtras()*extrasValor));
+	}
+
+	public int getExtras() {
+		return extras;
+	}
+
+	public void setExtras(int extras) {
+		this.extras = extras;
+	}
+
+	
+}
