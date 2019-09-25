@@ -1,0 +1,26 @@
+package ar.edu.uno.empresa;
+import java.util.ArrayList;
+
+public class Empresa {
+
+	private ArrayList<Empleado> empleados;
+	
+	public Empresa(ArrayList<Empleado> empleados) {
+		this.setEmpleados(empleados);
+	}
+	public Empresa() {
+		this(new ArrayList<Empleado>());
+	}
+	public void agregarEmpleado(Empleado e) {
+		if(e!=null) {
+			this.getEmpleados().add(e);
+		}
+	}
+	public ArrayList<Empleado> getEmpleados() {
+		return empleados;
+	}
+	public void setEmpleados(ArrayList<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+	
+}
