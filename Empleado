@@ -1,0 +1,72 @@
+package ar.edu.uno.empresa;
+
+public abstract class Empleado {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Empleado t1=new EmpleadoTemporario("Rechimon", 50);
+		t1.liqSueldo();
+		Empleado p1=new EmpleadoPermanente("Walter",1,2008,true);
+		p1.liqSueldo();
+		Empleado g1=new Gerente("Mauro",3,2000,true);
+		g1.liqSueldo();
+		Empleado o1=new EmpleadoOperario("Gonzalo",0,2010,false,50);
+		o1.liqSueldo();
+		System.out.println(t1);
+		System.out.println(p1);
+		System.out.println(g1);
+		System.out.println(o1);
+		Empresa WaldagoSA = new Empresa();
+		WaldagoSA.agregarEmpleado(t1);
+		WaldagoSA.agregarEmpleado(p1);
+		WaldagoSA.agregarEmpleado(g1);
+		WaldagoSA.agregarEmpleado(o1);
+		
+	}
+
+	private String nomyape;
+	private int leg;
+	static int cont=1000;
+	private double sueldo;
+	
+	public Empleado(String nomyape) {
+		this.setNomyape(nomyape);
+		this.setLeg(cont+1);
+		cont++;
+		this.setSueldo(0);
+	}
+	
+	public abstract void liqSueldo();
+	
+	public String getNomyape() {
+		return nomyape;
+	}
+
+	public void setNomyape(String nomyape) {
+		this.nomyape = nomyape;
+	}
+
+	public int getLeg() {
+		return leg;
+	}
+
+	public void setLeg(int leg) {
+		this.leg = leg;
+	}
+
+	public double getSueldo() {
+		return sueldo;
+	}
+
+	public void setSueldo(double sueldo) {
+		this.sueldo = sueldo;
+	}
+
+	@Override
+	public String toString() {
+		return "Empleado [nomyape=" + nomyape + ", leg=" + leg + ", sueldo=" + sueldo + "]";
+	}
+
+
+	
+}
