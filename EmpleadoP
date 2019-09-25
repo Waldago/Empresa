@@ -1,0 +1,88 @@
+package ar.edu.uno.empresa;
+
+public class EmpleadoPermanente extends Empleado{
+
+	private int cantHijos;
+	private int añoIng;
+	private boolean estadoC;
+	private int ant; 
+	private int sueldoB=4000;
+	static int impHijo=20;
+	static int impCasado=10;
+
+	public EmpleadoPermanente (String nomyape,int cantHijos,int añoIng,boolean estadoC) {
+		super(nomyape);
+		this.setCantHijos(cantHijos);
+		this.setAñoIng(añoIng);
+		this.setEstadoC(estadoC);		
+	}
+
+	private double calcularAnt() {
+		if (this.getAñoIng()<2019) {
+			this.setAnt(2019-this.getAñoIng());
+			return this.getAnt()*(this.getSueldoB()*0.04);
+		}
+		this.setAnt(0);	
+		return 0;
+	}
+
+	public void liqSueldo(){
+		
+		if(estadoC!=false) {
+			this.calcularAnt();
+			this.setSueldo(sueldoB+(this.getCantHijos()*impHijo)+impCasado+this.calcularAnt());
+		}		
+		this.setSueldo(sueldoB+(this.getCantHijos()*impHijo)+this.calcularAnt());
+	}
+
+	public int getCantHijos() {
+		return cantHijos;
+	}
+
+	public void setCantHijos(int cantHijos) {
+		this.cantHijos = cantHijos;
+	}
+
+	public int getAñoIng() {
+		return añoIng;
+	}
+
+	public void setAñoIng(int añoIng) {
+		this.añoIng = añoIng;
+	}
+
+	public int getAnt() {
+		return ant;
+	}
+
+	public void setAnt(int ant) {
+		this.ant = ant;
+	}
+
+
+
+	public boolean isEstadoC() {
+		return estadoC;
+	}
+
+	public void setEstadoC(boolean estadoC) {
+		this.estadoC = estadoC;
+	}
+
+	public int getSueldoB() {
+		return sueldoB;
+	}
+
+	public void setSueldoB(int sueldoB) {
+		this.sueldoB = sueldoB;
+	}
+
+	
+	@Override
+	public String toString() {
+		return super.toString()+"EmpleadoPermanente [cantHijos=" + cantHijos + ", añoIng=" + añoIng + ", estadoC=" + estadoC + ", ant="
+				+ ant + ", sueldoB=" + sueldoB + "]";
+	}
+	
+	
+}
