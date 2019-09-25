@@ -1,0 +1,33 @@
+package ar.edu.uno.empresa;
+
+public class Gerente extends EmpleadoPermanente{
+	
+	private double cargo;
+	
+	public Gerente(String nomyape,int cantHijos,int añoIng,boolean estadoC) {
+		super (nomyape,cantHijos,añoIng,estadoC);
+		this.setCargo(0);
+	}
+	
+	private void calculoxCargo(){
+		this.setCargo(this.getSueldoB()*0.30);
+	}
+	
+	public void liqSueldo() {
+		super.liqSueldo();
+		this.calculoxCargo();
+		this.setSueldo(this.getSueldo()+this.getCargo());
+	}
+
+	public double getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(double cargo) {
+		this.cargo = cargo;
+	}
+
+
+
+	
+}
