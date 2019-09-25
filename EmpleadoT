@@ -1,0 +1,31 @@
+package ar.edu.uno.empresa;
+
+public class EmpleadoTemporario extends Empleado {
+
+	private int cantH;
+	static int valorH=100;
+	
+	public EmpleadoTemporario(String nomyape,int cantH) {
+		super(nomyape);
+		this.setCantH(cantH);
+	}
+	
+	public void liqSueldo(){
+		this.setSueldo(getCantH()*valorH);
+	}
+
+	public int getCantH() {
+		return cantH;
+	}
+
+	public void setCantH(int cantH) {
+		this.cantH = cantH;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+"EmpleadoTemporario [cantH=" + cantH + "]";
+	}
+	
+	
+}
