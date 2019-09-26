@@ -1,0 +1,71 @@
+package ar.edu.uno.empresa;
+import java.util.ArrayList;
+
+
+public class Empresa {
+
+	private ArrayList<Empleado> empleados;
+	private int cuit;
+	private String razon;
+
+	public Empresa(ArrayList<Empleado> empleados,int cuit,String razon) {
+		this.setEmpleados(empleados);
+		this.setCuit(cuit);
+		this.setRazon(razon);
+	}
+
+	public Empresa() {
+		this(new ArrayList<Empleado>(),0,null);
+
+	}
+
+	public void agregarEmpleado(Empleado e) {
+		if(this.duplicado(e)!=true) {			
+			this.getEmpleados().add(e);
+		}
+	}
+
+	public boolean duplicado(Empleado a) {
+		for(Empleado e : empleados ) {
+			if(e.equals(a)) {
+				System.out.println("El empleado ya esta registrado");
+				return true;
+			}			
+			return false;
+		}		
+		return false;
+	}
+
+	public double saldo() {
+		double acu=0;
+		for(Empleado e : this.getEmpleados()) {
+			acu=acu+ e.getSueldo();
+		}
+		return acu;
+	}
+
+	public ArrayList<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(ArrayList<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	public int getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(int cuit) {
+		this.cuit = cuit;
+	}
+
+	public String getRazon() {
+		return razon;
+	}
+
+	public void setRazon(String razon) {
+		this.razon = razon;
+	}
+
+}
